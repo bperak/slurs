@@ -35,6 +35,52 @@ A **tabular summary of one heuristic on Google Trends**: for each configured **T
 
 ---
 
+## Qualitative reading of the quantitative results
+
+The numbers in this CSV are **not** a direct picture of “how much society hates or loves something.” They are a **compressed trace of relative search-like behaviour** in one commercial index, around dates you already treat as **politically salient** from news and chronology. The qualitative layer is: **what story about public attention is compatible with these shapes**, without turning the index into a moral thermometer.
+
+### What a “spike” can mean (substantively)
+
+When **`ratio` is high** for a keyword such as a **place**, **commemoration**, **person name**, or a **generic protest word** (*prosvjed*) in a run anchored on a real march or incident, a defensible qualitative gloss is:
+
+- **Calendar clustering:** many people (or a smaller number of intense repeat queries—Trends does not distinguish) **oriented their curiosity** toward that label **in the same few days** as media coverage and offline mobilisation. The curve **bunches** around the episode rather than staying flat across the month.
+- **Lexical anchoring:** the **exact string** you plotted is the one that temporarily **“carried”** the episode in search behaviour—often the **headline word** (city, artist, operation name) rather than a fine-grained legal or academic vocabulary.
+- **Co-listing effects:** because up to five keywords are **normalized together inside one Trends request**, a spike can partly reflect **contrast** with flat lines for other terms in the same batch. Qualitatively: “this label dominated *this* bundle of queries in that window,” not “this label dominated the nation’s entire cognitive life.”
+
+When **`ratio` is near zero** or **`max_around_event`** is very low for a string that is **politically loaded in discourse** (e.g. some slurs, or long movement names), the qualitative reading is usually **instrument sensitivity**, not “nothing happened in culture”:
+
+- **Rare or taboo surface forms** may not be typed into Google at scale, or may be **filtered / bucketed** differently than mainstream labels.
+- **Diacritics, spacing, and synonyms** matter: users search *Thompson*, *Split*, *prosvjed*; they rarely search a **full official march title** as a single exact phrase—so a flat line can mean **lexical mismatch**, not lack of protest.
+- **News and street activity can spike without Trends** following the same phrase, especially for local or short-lived events.
+
+### Juxtaposition the table is designed to support (H1 in plain language)
+
+The **research-relevant contrast** is often **within the same row block** (`run_id`): **public names and places** show **visible bumps** around anchors, while **slur strings or slur-adjacent political insults** often stay **flat or at floor**. Qualitatively, that supports a careful claim:
+
+- **Salience is unevenly “legible” to this instrument:** mainstream **event vocabulary** is what Trends is good at registering as a **relative** wave; **stigmatised or niche written forms** are systematically **under-read** here even when other evidence (corpus, news, ethnography) shows they matter in talk or text.
+
+That is an argument about **where polarisation “shows up” in a search proxy**, not about who is “more polarised.”
+
+### How to say it in a paper or talk (example formulations)
+
+You can adapt sentences like these (always cite the method limits in the same breath):
+
+- “Around [anchor date], **event-level labels** in our Trends window show a **concentrated uptick** relative to the rest of the month; **slur strings plotted in the same technical setup** do **not** reproduce that bump—consistent with **index blind spots** for certain lexical forms, not with a claim that slurs were absent from public life.”
+- “We treat Google Trends as a **rough attention proxy**: it tracks **how a few chosen strings behave relative to each other** in one regional slice, not absolute prevalence of attitudes or hate.”
+- “A **high `ratio` on *prosvjed*** near a coordinated march day suggests **generic protest vocabulary** briefly **aligned with media cycles**; it does **not** identify who searched or why.”
+
+### Pairing numbers with qualitative sources
+
+For a **thick** interpretation, combine this CSV with:
+
+- **News text and headlines** (e.g. Event Registry exports in the same repo)—what **nouns** did editors repeat?
+- **Corpus tokens** (hrWac / Sketch)—what **written** forms actually circulate?
+- **Chronologies and reports** (anchors in `config/anchor_events.json`)—what **actually happened** on the ground?
+
+Then the qualitative sentence becomes: **the same week**, **different instruments** highlight **different surfaces of the same episode**—and Trends is only one of those surfaces.
+
+---
+
 ## Limitations (important for citations)
 
 1. **Google Trends is not official statistics**—the project uses it as an **illustration** alongside Event Registry, corpus counts, etc.  
