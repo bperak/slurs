@@ -1,168 +1,82 @@
-# Slurs — empirical pipeline (corpus, news, attention)
+# Slurs, polarization, and public discourse — empirical materials
 
-[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**Repository:** [https://github.com/bperak/slurs](https://github.com/bperak/slurs)
+**Repository:** [github.com/bperak/slurs](https://github.com/bperak/slurs)
 
-Python toolkit for **triangulating** evidence on political slurs and polarization: **Sketch Engine / hrWac** (Croatian web corpus), **Event Registry** (news index), **Wikipedia** pageviews, **Google Trends** (illustrative), optional **GDELT GKG** via BigQuery. Outputs include **`output/presentation_report.md`** (talk handout with diagrams and procedures) and CSV summaries under **`output/`**.
-
-> **Ethics:** This code queries **sensitive lexical items** in public archives. Use for **research and teaching** with institutional safeguards; do not use outputs to harass individuals. Respect each provider’s **terms**, **FUP** (Sketch), and **rate limits**.
+This repository supports **comparative empirical work** on how **political slurs** and **polarizing labels** appear across **different kinds of evidence**: written **web text** (Croatian), **news indexes**, and **proxies for public attention** (Wikipedia traffic, Google Trends). It is built for **joint social–linguistic research** (e.g. STAL-style projects on Croatia and transatlantic comparators), not for scoring individuals or platforms.
 
 ---
 
-## Quick start
+## Research motivation
 
-```bash
-git clone https://github.com/bperak/slurs.git
-cd slurs
-python3 -m venv .venv
-source .venv/bin/activate   # Windows: .venv\Scripts\activate
-pip install -e ".[dev]"
-cp .env.example .env        # if present; otherwise create .env (see below)
-python -m pipeline doctor
-pytest -q
-```
+Political slurs do more than insult: they help **define who counts** as a legitimate participant in conflict. Empirically, no single archive gives a “true” frequency of slur use in society. Instead, this project **triangulates**:
 
-Optional extras:
+1. **Linguistic usage in a large reference corpus** — token-level queries in **hrWac** (Croatian web text) via Sketch Engine, to see how often **selected surface forms** occur in **written** discourse under one tagging regime.
 
-```bash
-pip install -e ".[trends]"   # Google Trends (pytrends)
-pip install -e ".[gdelt]"   # BigQuery / GDELT (google-cloud-bigquery)
-```
+2. **News indexing** — article-level hits in **Event Registry** (and optionally coarse **GDELT GKG** rows in BigQuery) for short query strings, to contrast **editorial / wire** visibility with corpus counts.
 
-Regenerate the **presentation handout** after ingests:
+3. **Attention proxies** — **Wikipedia** pageviews for chosen articles and **Google Trends** curves around **anchor dates** (e.g. commemorations, contested episodes), to relate **public salience** of labels to corpus and news measures.
 
-```bash
-python -m pipeline run-free
-python -m pipeline er-batch          # needs EVENTREGISTRY_API_KEY
-python -m pipeline er-summarize
-python -m pipeline trends-run
-python -m pipeline sketch-slurs      # needs SKETCH_ENGINE_* for hrWac N
-python -m pipeline refresh-output
-```
-
-Full command reference and file paths are documented inside **`output/presentation_report.md`** (sections **§8–§9**) after you run `refresh-output` once.
+The **scientific interest** lies in **tension between instruments**: the same string may be **rare in Trends**, **moderate in hrWac**, and **high or low in a news index** depending on language, window, and archive design. That **mismatch** is informative; it is not treated as noise to average away.
 
 ---
 
-## Environment variables (`.env`)
+## What you will find here
 
-| Variable | Used for |
+| Artefact | Audience |
 |----------|----------|
-| `EVENTREGISTRY_API_KEY` | Event Registry / [newsapi.ai](https://newsapi.ai/) |
-| `SKETCH_ENGINE_USER`, `SKETCH_ENGINE_KEY` | [Sketch Engine](https://www.sketchengine.eu/documentation/api-documentation/) HTTP API |
-| `GOOGLE_CLOUD_PROJECT`, `GOOGLE_APPLICATION_CREDENTIALS` | Optional **GDELT** BigQuery jobs |
-| `YOUTUBE_DATA_API_KEY`, `OPENAI_API_KEY` | Optional future / local experiments |
+| **`output/presentation_report.md`** | **Primary handout**: hypotheses, anchor events, numeric snapshot, **Mermaid** design diagrams, limitations, and (§9) reproducibility notes. Regenerated from local data. |
+| **`output/presentation_metrics.csv`**, **`trends_spike_summary.csv`**, **`eventregistry_snapshot.csv`** | Tables for slides or secondary analysis. |
+| **`output/methodology_diagrams.md`** | Static methodology sketches. |
+| **`config/*.json`** | Editable **keywords**, **event windows**, **anchor list**, and optional **GDELT** query definitions — version with your paper. |
+| **`sources/`** | Project prose sources (e.g. proposal text); **not** required to run code. |
 
-Never commit `.env`. **`data/`** is listed in `.gitignore** (local pulls and keys stay off GitHub by default).
-
----
-
-## Finish a credible stack *without* Event Registry
-
-You can still build a useful empirical picture:
-
-1. **Sketch / hrWac** — main **Croatian** token frequencies (`sketch-slurs`, `sketch-view`).
-2. **Wikipedia** — `run-free` / `wiki` + `config/wiki_pageviews.json` (**no key**).
-3. **Google Trends** — `pip install -e ".[trends]"` then `run-free` or `trends-run` (**unofficial**; slurs often **0**).
-4. **Anchors** — `config/anchor_events.json` for figure alignment.
-5. **GDELT** (optional) — `gdelt-snapshot` with GCP project + auth.
-
-Event Registry free tier is **limited** ([plans](https://eventregistry.org/plans)); use **`er-batch`** for targeted pulls or skip.
+**Coding, installation, API keys, and CLI commands** are documented in **[`docs/PIPELINE.md`](docs/PIPELINE.md)** so this README stays oriented to **research questions and interpretation**.
 
 ---
 
-## Recommended tools (priority)
+## Ethics and use
 
-| Priority | Tool | API key? | Role |
-|----------|------|----------|------|
-| 1 | **Wikimedia pageviews** | No | Attention proxy (EN/HR articles) |
-| 2 | **Event Registry** | Yes | News search / excerpts |
-| 3 | **BigQuery + GDELT** | GCP | Global GKG-scale checks |
-| 4 | **Sketch (hrWac)** | Yes | **hrWaC 2.2+** default: `preloaded/hrwac22_rft1` |
-| 5 | **YouTube Data API** | Yes | Optional video layer |
-| 6 | **OpenAI** | Yes | Optional — only on **your** exported text |
+- Queries involve **sensitive lexical items**. Use only for **peer-reviewed research, thesis work, or supervised teaching**, with **ethical review** where your institution requires it.
+- Do **not** use outputs to **target, harass, or deanonymize** people. Concordance snippets are **illustrative**; handle them like any other **hate-adjacent** primary material.
+- Respect **provider terms**, **Sketch Engine fair use**, and **rate limits**. Trends and similar tools are **not official** census data.
 
 ---
 
-## API keys (short links)
+## What we do *not* claim
 
-- **Event Registry:** [newsapi.ai](https://newsapi.ai/) → dashboard → `EVENTREGISTRY_API_KEY` in `.env`. Docs: [search articles](https://newsapi.ai/documentation?tab=searchArticles).
-- **Google Cloud:** [console](https://console.cloud.google.com/) → BigQuery / YouTube as needed → `GOOGLE_CLOUD_PROJECT`, `GOOGLE_APPLICATION_CREDENTIALS`, `YOUTUBE_DATA_API_KEY`.
-- **Sketch:** [app.sketchengine.eu](https://app.sketchengine.eu/) → My account → API key → `SKETCH_ENGINE_USER`, `SKETCH_ENGINE_KEY`.
+- **No causal identification** of events on slur rates from these layers alone.
+- **No equation** of Trends scores with “search volume”, **Wikipedia** hits with “all readers”, or **Event Registry** counts with “all news”.
+- **Corpus N** is a **concordance size** for a **token form** in **hrWac**, not moral prevalence and not spoken-language frequency.
 
----
-
-## Commands (cheat sheet)
-
-```bash
-python -m pipeline doctor
-
-python -m pipeline wiki hr.wikipedia "Hrvatska" --days 90
-python -m pipeline er-sample "polarization" --lang eng
-python -m pipeline er-evidence "political polarization" --lang eng --count 30
-
-python -m pipeline sketch-ping --corp "preloaded/hrwac22_rft1"
-python -m pipeline sketch-view --cql 'q[word="Hrvatska"]' --pagesize 5
-python -m pipeline sketch-slurs
-
-python -m pipeline er-batch
-python -m pipeline run-free
-python -m pipeline run-all
-python -m pipeline er-summarize
-
-python -m pipeline trends-run
-python -m pipeline trends-run --id us_capitol_contested_2021
-
-python -m pipeline gdelt-snapshot
-python -m pipeline refresh-output
-```
+Details and caveats are spelled out in **`output/presentation_report.md`** (§1.2, §7).
 
 ---
 
-## Optional local HTTP API
+## Reproducing or extending the study
 
-```bash
-uvicorn pipeline.api_app:app --reload --port 8765
-# GET http://127.0.0.1:8765/health
-```
+1. Clone the repository and follow **[`docs/PIPELINE.md`](docs/PIPELINE.md)** for environment setup and commands.
+2. Copy **`.env.example`** to **`.env`** and add only the API access you need (corpus-only work is possible without news keys).
+3. Edit **`config/`** to match your **terms**, **languages**, **event dates**, and **Trends windows**.
+4. Run the pipeline steps in **`docs/PIPELINE.md`**, then **`refresh-output`** to rebuild **`output/presentation_report.md`**.
 
-Do not expose without authentication.
-
----
-
-## Data layout (local)
-
-| Path | Content |
-|------|---------|
-| `config/slurs_terms.json` | Keywords for `er-batch` / Sketch HRV batch |
-| `config/anchor_events.json` | Event anchors for slides |
-| `config/wiki_pageviews.json` | Wikipedia batch for `run-free` |
-| `config/trends_event_windows.json` | Trends runs |
-| `config/gdelt_queries.json` | Optional GDELT windows |
-| `data/raw/` | Evidence JSON, wiki batches (gitignored) |
-| `data/processed/` | Summaries, Trends CSV, `sketch_hrwac_slurs.json`, manifests (gitignored) |
-| `output/` | `presentation_report.md`, `presentation_metrics.csv`, etc. |
+If you only need the **logic and limitations** without re-running APIs, read **`output/presentation_report.md`** as shipped (numbers may be snapshot-specific).
 
 ---
 
-## Tests
+## Citation and license
 
-```bash
-pytest -q
-```
+- **License:** [MIT](LICENSE) — Copyright (c) 2026 Benedikt Perak.
+- **Suggested citation (adapt to your style):**  
+  *Perak, B. (2026). Slurs — empirical pipeline (corpus, news, attention) [Computer software]. GitHub. https://github.com/bperak/slurs*
 
----
-
-## License
-
-[MIT](LICENSE) — Copyright (c) 2026 Benedikt Perak.
+For co-authored papers, cite the **paper** when available and mention this repository as **supplementary materials**.
 
 ---
 
-## Security
+## Further reading in-repo
 
-- Never commit **`.env`** or raw **API responses** with personal data.
-- Rotate keys exposed in chat or CI logs.
-- Use provider **key restrictions** where available.
+- **[`docs/PIPELINE.md`](docs/PIPELINE.md)** — Installation, `.env`, CLI, file layout, security.  
+- **[`output/presentation_report.md`](output/presentation_report.md)** — Full narrative, tables, diagrams, and procedural appendix.  
+- **[`output/HANDOFF_execute_without_bigquery.md`](output/HANDOFF_execute_without_bigquery.md)** — Scope when skipping BigQuery/GDELT.

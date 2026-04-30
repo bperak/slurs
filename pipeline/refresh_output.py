@@ -125,7 +125,7 @@ def _gdelt_presentation(
     pm_rows: list[dict[str, Any]] = []
     if not p or not p.is_file():
         return (
-            "Not in this run. Install the optional BigQuery extra (see README), set "
+            "Not in this run. Install the optional BigQuery extra (see docs/PIPELINE.md), set "
             "GOOGLE_CLOUD_PROJECT and auth, then: python -m pipeline gdelt-snapshot.",
             [],
         )
@@ -653,7 +653,8 @@ def _presentation_process_guide_section() -> str:
         "## 9. Processes and procedures (detailed reference)\n\n"
         "**Relationship to §1–§7:** The sections above explain **findings and talk structure**. This appendix explains **machinery**: "
         "commands, config files, and on-disk paths so a colleague can **reproduce** the tables. If anything here seems to "
-        "repeat an idea from §1–§7, treat **§9** as the **technical** spelling-out.\n\n"
+        "repeat an idea from §1–§7, treat **§9** as the **technical** spelling-out. A consolidated **install / CLI** sheet "
+        "also lives in **`docs/PIPELINE.md`** at the repository root.\n\n"
         "This section explains **what each pipeline step does**, **what it reads and writes**, and **how to interpret** outputs. "
         "Executive diagrams also appear in **§1.5**. Commands assume the project root `slurs_cer_julija`, venv active, and "
         "optional keys in **`.env`** (the repo loads it via `python-dotenv`; you do not commit secrets).\n\n"
@@ -666,7 +667,8 @@ def _presentation_process_guide_section() -> str:
         "| `config/trends_event_windows.json` | **Google Trends** runs: geo, event date, keyword batches (≤5 per request) |\n"
         "| `config/anchor_events.json` | Human-readable **anchor events** for slides and alignment narrative |\n"
         "| `config/gdelt_queries.json` | Optional **BigQuery** windows and theme substrings for **GDELT** |\n"
-        "| `config/sketch_croatian.json` | Notes + default **hrWac** corpus id for Sketch |\n\n"
+        "| `config/sketch_croatian.json` | Notes + default **hrWac** corpus id for Sketch |\n"
+        "| `docs/PIPELINE.md` | **Install, `.env`, CLI**, repository layout (developer reference) |\n\n"
         "```mermaid\n"
         "flowchart TB\n"
         "  subgraph CFG[\"config\"]\n"
@@ -909,7 +911,7 @@ We do **not** infer **causal** effects of an event on hate speech. We do **not**
 
 {anchor_bullets}
 
-**Trends runs** for 2025 windows are listed in `config/trends_event_windows.json` (`hr_thompson_hipodrom_2025`, `us_kirk_2025`) — pull them with `python -m pipeline trends-run`. Google / pytrends may rate-limit or return empty series; Optional **BigQuery** via `gdelt-snapshot` (see README).
+**Trends runs** for 2025 windows are listed in `config/trends_event_windows.json` (`hr_thompson_hipodrom_2025`, `us_kirk_2025`) — pull them with `python -m pipeline trends-run`. Google / pytrends may rate-limit or return empty series; optional **BigQuery** via `gdelt-snapshot` (see **`docs/PIPELINE.md`**).
 
 ---
 

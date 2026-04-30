@@ -1,6 +1,6 @@
 # Slurs, polarization, and public discourse
 **Empirical snapshot for STAL / joint work (Cerovac & Perhat)**
-*Generated: 2026-04-30 06:48 UTC — pipeline manifest date `2026-04-30`. See `output/*.csv` and `data/processed/` for sources.*
+*Generated: 2026-04-30 06:55 UTC — pipeline manifest date `2026-04-30`. See `output/*.csv` and `data/processed/` for sources.*
 
 ---
 
@@ -113,7 +113,7 @@ flowchart TB
 - **kirk_assassination_2025** (United States): Atentat / ubojstvo Charliea Kirka (SAD) — **2025-09-10** (Utah Valley University, Orem, UT)
 - **capitol** (United States): Napad na Kapitol — **2021-01-06**
 
-**Trends runs** for 2025 windows are listed in `config/trends_event_windows.json` (`hr_thompson_hipodrom_2025`, `us_kirk_2025`) — pull them with `python -m pipeline trends-run`. Google / pytrends may rate-limit or return empty series; Optional **BigQuery** via `gdelt-snapshot` (see README).
+**Trends runs** for 2025 windows are listed in `config/trends_event_windows.json` (`hr_thompson_hipodrom_2025`, `us_kirk_2025`) — pull them with `python -m pipeline trends-run`. Google / pytrends may rate-limit or return empty series; optional **BigQuery** via `gdelt-snapshot` (see **`docs/PIPELINE.md`**).
 
 ---
 
@@ -137,7 +137,7 @@ Corpus: `preloaded/hrwac22_rft1`; **CQL** is surface **word** form, not lemma; F
 **Explanation:** Hypotheses here are **operational**: they refer to **measurable behaviour of our instruments**, not to deep causal laws of culture. **H1** is about **Trends’ numeric behaviour** around anchors versus slur strings. **H2** (when GDELT runs) is about **coarse GKG theme matches** in a BigQuery slice. **H3** is a **disciplining** claim: **do not** merge Event Registry and Trends into one ranking without reading **how** each is built.
 
 - **H1 (attention / Trends):** Around anchor days, **public labels** (event names, places, movement names) tend to show **higher** relative 0–100 interest in Trends than many **slur** strings, which are often **0** or suppressed.
-- **H2 (news at scale / GKG on BigQuery):** Not in this run. Install the optional BigQuery extra (see README), set GOOGLE_CLOUD_PROJECT and auth, then: python -m pipeline gdelt-snapshot.
+- **H2 (news at scale / GKG on BigQuery):** Not in this run. Install the optional BigQuery extra (see docs/PIPELINE.md), set GOOGLE_CLOUD_PROJECT and auth, then: python -m pipeline gdelt-snapshot.
 - **H3 (index sensitivity):** **Event Registry** hit counts and **Google Trends** curves are **not** the same design: do not expect them to **rank** terms identically (window, language, plan limits).
 
 **How to falsify (examples):** For **H1**, find a stable window where a **slur string** repeatedly **outscores** mainstream labels around the same anchor (would weaken the illustrative pattern). For **H3**, show the **same** keyword list producing **opposite rank orders** in ER vs Trends **because of known filter differences**—that would **support** H3 as a methods fact, not refute the project.
@@ -233,7 +233,7 @@ python -m pipeline refresh-output
 
 ## 9. Processes and procedures (detailed reference)
 
-**Relationship to §1–§7:** The sections above explain **findings and talk structure**. This appendix explains **machinery**: commands, config files, and on-disk paths so a colleague can **reproduce** the tables. If anything here seems to repeat an idea from §1–§7, treat **§9** as the **technical** spelling-out.
+**Relationship to §1–§7:** The sections above explain **findings and talk structure**. This appendix explains **machinery**: commands, config files, and on-disk paths so a colleague can **reproduce** the tables. If anything here seems to repeat an idea from §1–§7, treat **§9** as the **technical** spelling-out. A consolidated **install / CLI** sheet also lives in **`docs/PIPELINE.md`** at the repository root.
 
 This section explains **what each pipeline step does**, **what it reads and writes**, and **how to interpret** outputs. Executive diagrams also appear in **§1.5**. Commands assume the project root `slurs_cer_julija`, venv active, and optional keys in **`.env`** (the repo loads it via `python-dotenv`; you do not commit secrets).
 
@@ -249,6 +249,7 @@ This section explains **what each pipeline step does**, **what it reads and writ
 | `config/anchor_events.json` | Human-readable **anchor events** for slides and alignment narrative |
 | `config/gdelt_queries.json` | Optional **BigQuery** windows and theme substrings for **GDELT** |
 | `config/sketch_croatian.json` | Notes + default **hrWac** corpus id for Sketch |
+| `docs/PIPELINE.md` | **Install, `.env`, CLI**, repository layout (developer reference) |
 
 ```mermaid
 flowchart TB
