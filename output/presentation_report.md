@@ -1,6 +1,6 @@
 # Slurs, polarization, and public discourse
 **Empirical snapshot for STAL / joint work (Cerovac & Perhat)**
-*Generated: 2026-04-30 06:55 UTC — pipeline manifest date `2026-04-30`. See `output/*.csv` and `data/processed/` for sources.*
+*Generated: 2026-04-30 07:17 UTC — pipeline manifest date `2026-04-30`. See `output/*.csv` and `data/processed/` for sources.*
 
 ---
 
@@ -105,15 +105,17 @@ flowchart TB
 
 ## 2. Anchor events (paper / talk; see `config/anchor_events.json`)
 
-**Explanation:** Anchor events are **calendar and place anchors** for your **talk**, not statistical regressors inside this export. They give **shared reference dates** (e.g. Capitol 2021-01-06, Thompson concert 2025-07-05, Kirk 2025-09-10) so that **Trends windows**, **ER recency filters**, and **slide titles** point at the **same episode**. Rows with **“—”** dates are placeholders: fill `approx_date` in `config/anchor_events.json` when you lock the paper.
+**Explanation:** Anchor events are **calendar and place anchors** for your **talk**, not statistical regressors inside this export. They give **shared reference dates** (e.g. Capitol 2021-01-06, Thompson 2025-07-05, Kirk 2025-09-10, **Split folklor 2025-11-03**, **«Ujedinjeni protiv fašizma» 2025-11-30**) so that **Trends windows**, **ER recency filters**, and **slide titles** point at the **same episode**. Rows with **“—”** dates are placeholders: fill `approx_date` in `config/anchor_events.json` when you lock the paper.
 
 - **thompson_hipodrom_2025** (Croatia): Koncert Marka Perkovića Thompsona (Hipodrom, Zagreb) — **2025-07-05** (Hipodrom Zagreb)
-- **folklore_attack** (Croatia): Napad na srpske folkloraše — **—**
-- **antifascist_protest** (Croatia): Prosvjed protiv fašizma — **—**
+- **folklore_attack** (Croatia): Split: prekid «Večeri folklora» (Dani srpske kulture, SKD Prosvjeta) — upad maskiranih mladića, 3. studeni 2025. — **2025-11-03** (Gradski kotar Blatine-Škrape, Split)
+  - *Izvori / kontekst:* Jutarnji list, nacional.hr, Index.hr, Dalmacija News (4. stu. 2025.); policija privela više osoba; program kasnije nastavljen.
+- **antifascist_protest** (Croatia): «Ujedinjeni protiv fašizma» — marševi u Hrvatskoj (30. studeni 2025., podne), reakcija na nasilje i netrpeljivost; u Rijeci oko 2.000 sudionika, incident prije povorke (osuda sedmorice). — **2025-11-30** (Zagreb, Rijeka, Pula, Zadar (inicijativa Ujedinjeni protiv fašizma))
+  - *Izvori / kontekst:* Wikipedia članak; H-Alter, Kulturpunkt (30. stu. 2025.); Zagreb: Glavni kolodvor → Trg bana Jelačića; Rijeka: Jadranski trg — Delta; jake policijske snage. Javna poruka: ne pristajanje na zastrašivanje, podjele i fašizaciju društva; mediji spominju nekoliko tisuća sudionika diljem zemlje.
 - **kirk_assassination_2025** (United States): Atentat / ubojstvo Charliea Kirka (SAD) — **2025-09-10** (Utah Valley University, Orem, UT)
 - **capitol** (United States): Napad na Kapitol — **2021-01-06**
 
-**Trends runs** for 2025 windows are listed in `config/trends_event_windows.json` (`hr_thompson_hipodrom_2025`, `us_kirk_2025`) — pull them with `python -m pipeline trends-run`. Google / pytrends may rate-limit or return empty series; optional **BigQuery** via `gdelt-snapshot` (see **`docs/PIPELINE.md`**).
+**Trends runs** for 2025 windows are listed in `config/trends_event_windows.json` (e.g. `hr_thompson_hipodrom_2025`, `us_kirk_2025`, **`hr_split_folklore_nov2025`**, **`hr_ujedinjeni_protiv_fasizma_nov2025`**) — pull them with `python -m pipeline trends-run`. Google / pytrends may rate-limit or return empty series; optional **BigQuery** via `gdelt-snapshot` (see **`docs/PIPELINE.md`**).
 
 ---
 
@@ -159,9 +161,9 @@ Corpus: `preloaded/hrwac22_rft1`; **CQL** is surface **word** form, not lemma; F
 | 4 | Terms (prijedlog) | EN: libtard, MAGA, teabagger — HR: jugočetnici, jugokomunisti, klerofašist, Ustaše |
 | 5 | **Wikipedia (attention, no key)** | EN *Political polarization* article: **~23.9k** total daily views over 90 days; peak day **566** views. HR *Hrvatska*: **~53.0k** sum; peak **884** — *broad* attention, not slur-specific* |
 | 6 | **Event Registry (news, if available)** | **MAGA** & **Ustaše** return many index hits; several HR slur strings **rare or zero** in a short window — *phrase choice and archive limits matter* — see `output/eventregistry_snapshot.csv` |
-| 7 | **Google Trends (illustration)** | **Jan 6 (2021)** & **Oluja (2024)** windows: mainstream labels **spike** more than some slur strings; *libtard* / *Ustaše* often **0** in Trends. **2025:** *Thompson* (Hipodrom, 5 July) and *Kirk* (10 Sept) — if `trends_iot_*.csv` exist after `trends-run` |
+| 7 | **Google Trends (illustration)** | **Jan 6 (2021)** & **Oluja (2024)** windows: mainstream labels **spike** more than some slur strings; *libtard* / *Ustaše* often **0** in Trends. **2025:** *Thompson*, *Kirk*, **Split (3 Nov.)**, **«Ujedinjeni protiv fašizma» (30 Nov.)** — if `trends_iot_*.csv` exist after `trends-run` |
 | 8 | “Contested event” | Same episode, **different public labels** (riot vs. protest; memory politics) + **low slur salience in Trends** |
-| 9 | **2025 anchors (optional slide)** | **Thompson** concert Zagreb; **Kirk** assassination US — *dates in config; Trends curves optional* |
+| 9 | **2025 anchors (optional slide)** | **Thompson** (Zagreb); **Kirk** (US); **Split** (folklor / Dani srpske kulture); **«Ujedinjeni protiv fašizma»** (30. stud., četiri grada) — *`anchor_events.json`; Trends: `hr_split_folklore_nov2025`, `hr_ujedinjeni_protiv_fasizma_nov2025`* |
 | 10 | Limitations | Trends **0–100**; Event Registry **free tier**; GKG = coarse substring counts; **no** causal claim |
 | 11 | Next step | Refine **CQL** (lemmata, diacritics, near-synonyms); `gdelt-snapshot` for BigQuery cross-check; `output/methodology_diagrams.md` |
 
@@ -177,6 +179,7 @@ Corpus: `preloaded/hrwac22_rft1`; **CQL** is surface **word** form, not lemma; F
 - **Event Registry (indexed news, last batch):** e.g. **MAGA** ~**12,543** total hits; **Ustaše** **276**; several HR terms **0** in the same search setup — *interpret as “sparse in that index + window”, not as “unused in society”.*
 - **hrWac 2.2+ (word-form CQL; not lemma):** *jugočetnici* **5**; *jugokomunisti* **155**; *klerofašist* **67**; *Ustaše* **2,351** — *see* `data/processed/sketch_hrwac_slurs.json`
 - **Trends (spike ratio ±3 days around event, legacy demo windows):** *Capitol riot* **~12.12**; *January 6th* **~11.48**; *MAGA* **~3.20**; *libtard* **0.0**; *Stop the Steal* **~6.59**; *Oluja* **~30.2**; *Ustaše* **0.0** in Trends.
+- **Trends (other configured runs, HR Nov–Dec 2025):** Spike ratios for **Thompson**, **Kirk**, **`hr_split_folklore_nov2025`** (*Split*, *folklor*, … around **2025-11-03**), and **`hr_ujedinjeni_protiv_fasizma_nov2025`** (*Ujedinjeni protiv fašizma*, *prosvjed*, *fašizam*, *Rijeka*, *Zagreb* around **2025-11-30**) are in `trends_summary_*.json` and **`output/trends_spike_summary.csv`** — not repeated above to keep §5 short.
 
 Full table: `output/presentation_metrics.csv`
 Trends detail: `output/trends_spike_summary.csv`
@@ -191,7 +194,7 @@ Methodology: `output/methodology_diagrams.md` — `output/HANDOFF_execute_withou
 
 1. **Line chart:** `data/processed/trends_iot_us_capitol_contested_2021.csv` — mark **2021-01-06** vertical line.
 2. **Line chart:** `data/processed/trends_iot_hr_oluja_window_2024.csv` — mark **2024-08-05** (Oluja).
-3. **Optional 2025:** `data/processed/trends_iot_hr_thompson_hipodrom_2025.csv` and `data/processed/trends_iot_us_kirk_2025.csv` (after `trends-run`) — mark **2025-07-05** and **2025-09-10** if the series are non-empty.
+3. **Optional 2025:** `trends_iot_hr_thompson_hipodrom_2025.csv`, `trends_iot_us_kirk_2025.csv`, **`trends_iot_hr_split_folklore_nov2025.csv`**, **`trends_iot_hr_ujedinjeni_protiv_fasizma_nov2025.csv`** — mark **2025-07-05**, **2025-09-10**, **2025-11-03** (Split), **2025-11-30** (antifa marches) if the series are non-empty.
 4. **Bar chart:** `trends_spike_summary.csv` — *ratio* (drop zeros for slur-focused story).
 5. **Table:** `eventregistry_snapshot.csv` — *total_results* by term (caveat on index).
 6. **Table (corpus N):** `data/processed/sketch_hrwac_slurs.json` — **word-form** **N** per HRV slur; optional mini KWIC lines in the same file (FUP — do not re-scrape the corpus at scale outside Sketch rules).

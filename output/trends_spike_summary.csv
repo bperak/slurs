@@ -4,11 +4,21 @@ hr_oluja_window_2024,HR,2024-08-05,3,Oluja,31.0,1.0256,30.225,commemoration
 hr_oluja_window_2024,HR,2024-08-05,3,Hrvatska,75.0,57.5385,1.303,broad
 hr_oluja_window_2024,HR,2024-08-05,3,prosvjed,0.0,0.1,0.0,generic
 hr_oluja_window_2024,HR,2024-08-05,3,izbori,1.0,0.5385,1.857,generic
+hr_split_folklore_nov2025,HR,2025-11-03,3,Split,87.0,85.2286,1.021,place
+hr_split_folklore_nov2025,HR,2025-11-03,3,folklor,0.0,0.1,0.0,commemoration
+hr_split_folklore_nov2025,HR,2025-11-03,3,Dani srpske kulture,0.0,0.1,0.0,commemoration
+hr_split_folklore_nov2025,HR,2025-11-03,3,Prosvjeta,1.0,0.1,10.0,generic
+hr_split_folklore_nov2025,HR,2025-11-03,3,napad,3.0,0.4857,6.176,contested_framing
 hr_thompson_hipodrom_2025,HR,2025-07-05,3,Thompson,100.0,5.3333,18.75,commemoration
 hr_thompson_hipodrom_2025,HR,2025-07-05,3,Hipodrom,23.0,0.8974,25.629,commemoration
 hr_thompson_hipodrom_2025,HR,2025-07-05,3,Zagreb,81.0,57.2051,1.416,commemoration
 hr_thompson_hipodrom_2025,HR,2025-07-05,3,koncert,71.0,4.1538,17.093,commemoration
 hr_thompson_hipodrom_2025,HR,2025-07-05,3,Croatia,19.0,15.7692,1.205,broad
+hr_ujedinjeni_protiv_fasizma_nov2025,HR,2025-11-30,3,Ujedinjeni protiv fašizma,0.0,0.1,0.0,commemoration
+hr_ujedinjeni_protiv_fasizma_nov2025,HR,2025-11-30,3,prosvjed,5.0,0.1034,48.333,generic
+hr_ujedinjeni_protiv_fasizma_nov2025,HR,2025-11-30,3,fašizam,2.0,0.1,20.0,generic
+hr_ujedinjeni_protiv_fasizma_nov2025,HR,2025-11-30,3,Rijeka,50.0,31.0345,1.611,place
+hr_ujedinjeni_protiv_fasizma_nov2025,HR,2025-11-30,3,Zagreb,91.0,88.8621,1.024,place
 us_capitol_contested_2021,US,2021-01-06,3,MAGA,22.0,6.8761,3.199,slur_adjacent
 us_capitol_contested_2021,US,2021-01-06,3,libtard,0.0,0.1,0.0,slur
 us_capitol_contested_2021,US,2021-01-06,3,Capitol riot,43.0,3.5487,12.117,contested_framing

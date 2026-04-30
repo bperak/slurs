@@ -11,13 +11,17 @@
     },
     {
       "id": "folklore_attack",
-      "label": "Napad na srpske folkloraše",
-      "approx_date": null
+      "label": "Split: prekid «Večeri folklora» (Dani srpske kulture, SKD Prosvjeta) — upad maskiranih mladića, 3. studeni 2025.",
+      "location": "Gradski kotar Blatine-Škrape, Split",
+      "approx_date": "2025-11-03",
+      "sources_note": "Jutarnji list, nacional.hr, Index.hr, Dalmacija News (4. stu. 2025.); policija privela više osoba; program kasnije nastavljen."
     },
     {
       "id": "antifascist_protest",
-      "label": "Prosvjed protiv fašizma",
-      "approx_date": null
+      "label": "«Ujedinjeni protiv fašizma» — marševi u Hrvatskoj (30. studeni 2025., podne), reakcija na nasilje i netrpeljivost; u Rijeci oko 2.000 sudionika, incident prije povorke (osuda sedmorice).",
+      "location": "Zagreb, Rijeka, Pula, Zadar (inicijativa Ujedinjeni protiv fašizma)",
+      "approx_date": "2025-11-30",
+      "sources_note": "Wikipedia članak; H-Alter, Kulturpunkt (30. stu. 2025.); Zagreb: Glavni kolodvor → Trg bana Jelačića; Rijeka: Jadranski trg — Delta; jake policijske snage. Javna poruka: ne pristajanje na zastrašivanje, podjele i fašizaciju društva; mediji spominju nekoliko tisuća sudionika diljem zemlje."
     }
   ],
   "united_states": [

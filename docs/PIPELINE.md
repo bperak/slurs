@@ -56,7 +56,7 @@ After changing config or credentials, rebuild processed data then the handout:
 python -m pipeline run-free
 python -m pipeline er-batch          # requires EVENTREGISTRY_API_KEY
 python -m pipeline er-summarize
-python -m pipeline trends-run
+python -m pipeline trends-run       # e.g. hr_split_folklore_nov2025, hr_ujedinjeni_protiv_fasizma_nov2025 if in config
 python -m pipeline sketch-slurs      # requires SKETCH_ENGINE_* for hrWac counts
 # optional: pip install -e ".[gdelt]"  # once
 python -m pipeline gdelt-snapshot    # requires GOOGLE_CLOUD_PROJECT + auth

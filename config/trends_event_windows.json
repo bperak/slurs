@@ -57,6 +57,34 @@
         "Turning Point",
         "Trump"
       ]
+    },
+    {
+      "id": "hr_split_folklore_nov2025",
+      "label": "HR: Split — incident tijekom Dana srpske kulture (prekid Večeri folklora, 3. studeni 2025.; Trends ilustrativno)",
+      "timeframe": "2025-10-15 2025-11-25",
+      "geo": "HR",
+      "event_date": "2025-11-03",
+      "keywords": [
+        "Split",
+        "folklor",
+        "Dani srpske kulture",
+        "Prosvjeta",
+        "napad"
+      ]
+    },
+    {
+      "id": "hr_ujedinjeni_protiv_fasizma_nov2025",
+      "label": "HR: prosvjedi «Ujedinjeni protiv fašizma» (30. studeni 2025., 12:00) — Zagreb, Rijeka, Pula, Zadar; Trends ilustrativno",
+      "timeframe": "2025-11-10 2025-12-15",
+      "geo": "HR",
+      "event_date": "2025-11-30",
+      "keywords": [
+        "Ujedinjeni protiv fašizma",
+        "prosvjed",
+        "fašizam",
+        "Rijeka",
+        "Zagreb"
+      ]
     }
   ]
 }
