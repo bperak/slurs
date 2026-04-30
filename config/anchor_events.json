@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "source": "sources/STAL 2026/prijedlog.md",
+  "description": "Time anchors for visual alignment with slur / news spikes. For Google Trends see config/trends_event_windows.json.",
+  "croatia": [
+    {
+      "id": "thompson_hipodrom_2025",
+      "label": "Koncert Marka Perkovića Thompsona (Hipodrom, Zagreb)",
+      "location": "Hipodrom Zagreb",
+      "approx_date": "2025-07-05"
+    },
+    {
+      "id": "folklore_attack",
+      "label": "Napad na srpske folkloraše",
+      "approx_date": null
+    },
+    {
+      "id": "antifascist_protest",
+      "label": "Prosvjed protiv fašizma",
+      "approx_date": null
+    }
+  ],
+  "united_states": [
+    {
+      "id": "kirk_assassination_2025",
+      "label": "Atentat / ubojstvo Charliea Kirka (SAD)",
+      "location": "Utah Valley University, Orem, UT",
+      "approx_date": "2025-09-10"
+    },
+    {
+      "id": "capitol",
+      "label": "Napad na Kapitol",
+      "approx_date": "2021-01-06"
+    }
+  ]
+}

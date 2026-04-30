@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "note": "Default Croatian **web** corpus on Sketch Engine: hrWaC 2.2+ (large web crawl). Id matches the *open in Sketch Engine* link on https://www.sketchengine.eu/hrwac-croatian-corpus/",
+  "default_corpname": "preloaded/hrwac22_rft1",
+  "example_cql_for_concordance": "q[word=\"Hrvatska\"]"
+}

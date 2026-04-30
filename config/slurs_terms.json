@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "source": "sources/STAL 2026/prijedlog.md",
+  "eventregistry_defaults": {
+    "count": 25,
+    "window_days": 31,
+    "mode": "phrase",
+    "loc": "body"
+  },
+  "sleep_seconds_between_requests": 2.5,
+  "queries": [
+    {"id": "eng_libtard", "keyword": "libtard", "lang": "eng", "note": "EN political slur"},
+    {"id": "eng_maga", "keyword": "MAGA", "lang": "eng", "note": "MAGA / Trump base (per prijedlog MAGAt)"},
+    {"id": "eng_teabagger", "keyword": "teabagger", "lang": "eng", "note": "Tea Party slur"},
+    {"id": "hrv_jugocetnici", "keyword": "jugočetnici", "lang": "hrv", "note": "HR"},
+    {"id": "hrv_jugokomunisti", "keyword": "jugokomunisti", "lang": "hrv", "note": "HR"},
+    {"id": "hrv_klerofasist", "keyword": "klerofašist", "lang": "hrv", "note": "HR STAL focus"},
+    {"id": "hrv_ustase", "keyword": "Ustaše", "lang": "hrv", "note": "HR historical slur label"}
+  ]
+}

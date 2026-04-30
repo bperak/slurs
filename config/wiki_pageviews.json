@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "note": "No API key. Complements Google Trends (attention) when Event Registry is unused.",
+  "pages": [
+    {
+      "id": "en_polarization",
+      "project": "en.wikipedia",
+      "title": "Political polarization",
+      "days": 90
+    },
+    {
+      "id": "hr_croatia",
+      "project": "hr.wikipedia",
+      "title": "Hrvatska",
+      "days": 90
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+section,metric,value,unit,source_file,notes
+Wikipedia,Political polarization (en.wikipedia) — sum daily views (90d window),23919,views sum,data/raw/wiki_batch_en_polarization.json,Public attention proxy; not slur-specific
+Wikipedia,Political polarization (en.wikipedia) — peak single-day views,566,views max,data/raw/wiki_batch_en_polarization.json,Peak in source JSON items
+Wikipedia,Hrvatska (hr.wikipedia) — sum daily views (90d window),53023,views sum,data/raw/wiki_batch_hr_croatia.json,Public attention proxy; not slur-specific
+Wikipedia,Hrvatska (hr.wikipedia) — peak single-day views,884,views max,data/raw/wiki_batch_hr_croatia.json,Peak in source JSON items
+Event Registry,ENG libtard — total matching articles (index),20,hits,data/processed/eventregistry_summary.csv,
+Event Registry,ENG MAGA — total matching articles (index),12543,hits,data/processed/eventregistry_summary.csv,High base rate in news
+Event Registry,ENG teabagger — total matching articles (index),0,hits,data/processed/eventregistry_summary.csv,Often zero — sparse or phrasing
+Event Registry,HRV jugocetnici — total,0,hits,data/processed/eventregistry_summary.csv,
+Event Registry,HRV jugokomunisti — total,0,hits,data/processed/eventregistry_summary.csv,
+Event Registry,HRV klerofasist — total,0,hits,data/processed/eventregistry_summary.csv,
+Event Registry,HRV Ustaše — total,276,hits,data/processed/eventregistry_summary.csv,
+Event Registry,EN political polarization (probe query) — total,528,hits,data/processed/eventregistry_summary.csv,Separate probe not same as slur list
+Google Trends,trends_summary_hr_oluja_window_2024 — Ustaše spike vs baseline (±3d),0.0,ratio,data/processed/trends_summary_hr_oluja_window_2024.json,0–100 relative index; not absolute volume
+Google Trends,trends_summary_hr_oluja_window_2024 — Oluja spike vs baseline (±3d),30.225,ratio,data/processed/trends_summary_hr_oluja_window_2024.json,0–100 relative index; not absolute volume
+Google Trends,trends_summary_hr_oluja_window_2024 — Hrvatska spike vs baseline (±3d),1.303,ratio,data/processed/trends_summary_hr_oluja_window_2024.json,0–100 relative index; not absolute volume
+Google Trends,trends_summary_hr_oluja_window_2024 — prosvjed spike vs baseline (±3d),0.0,ratio,data/processed/trends_summary_hr_oluja_window_2024.json,0–100 relative index; not absolute volume
+Google Trends,trends_summary_hr_oluja_window_2024 — izbori spike vs baseline (±3d),1.857,ratio,data/processed/trends_summary_hr_oluja_window_2024.json,0–100 relative index; not absolute volume
+Google Trends,trends_summary_hr_thompson_hipodrom_2025 — Thompson spike vs baseline (±3d),18.75,ratio,data/processed/trends_summary_hr_thompson_hipodrom_2025.json,0–100 relative index; not absolute volume
+Google Trends,trends_summary_hr_thompson_hipodrom_2025 — Hipodrom spike vs baseline (±3d),25.629,ratio,data/processed/trends_summary_hr_thompson_hipodrom_2025.json,0–100 relative index; not absolute volume
+Google Trends,trends_summary_hr_thompson_hipodrom_2025 — Zagreb spike vs baseline (±3d),1.416,ratio,data/processed/trends_summary_hr_thompson_hipodrom_2025.json,0–100 relative index; not absolute volume
+Google Trends,trends_summary_hr_thompson_hipodrom_2025 — koncert spike vs baseline (±3d),17.093,ratio,data/processed/trends_summary_hr_thompson_hipodrom_2025.json,0–100 relative index; not absolute volume
+Google Trends,trends_summary_hr_thompson_hipodrom_2025 — Croatia spike vs baseline (±3d),1.205,ratio,data/processed/trends_summary_hr_thompson_hipodrom_2025.json,0–100 relative index; not absolute volume
+Google Trends,trends_summary_us_capitol_contested_2021 — MAGA spike vs baseline (±3d),3.199,ratio,data/processed/trends_summary_us_capitol_contested_2021.json,0–100 relative index; not absolute volume
+Google Trends,trends_summary_us_capitol_contested_2021 — libtard spike vs baseline (±3d),0.0,ratio,data/processed/trends_summary_us_capitol_contested_2021.json,Suppressed or too rare in Trends for this window
+Google Trends,trends_summary_us_capitol_contested_2021 — Capitol riot spike vs baseline (±3d),12.117,ratio,data/processed/trends_summary_us_capitol_contested_2021.json,0–100 relative index; not absolute volume
+Google Trends,trends_summary_us_capitol_contested_2021 — Stop the Steal spike vs baseline (±3d),6.592,ratio,data/processed/trends_summary_us_capitol_contested_2021.json,0–100 relative index; not absolute volume
+Google Trends,trends_summary_us_capitol_contested_2021 — January 6th spike vs baseline (±3d),11.477,ratio,data/processed/trends_summary_us_capitol_contested_2021.json,0–100 relative index; not absolute volume
+Google Trends,trends_summary_us_kirk_2025 — Charlie Kirk spike vs baseline (±3d),35.714,ratio,data/processed/trends_summary_us_kirk_2025.json,0–100 relative index; not absolute volume
+Google Trends,trends_summary_us_kirk_2025 — MAGA spike vs baseline (±3d),0.0,ratio,data/processed/trends_summary_us_kirk_2025.json,0–100 relative index; not absolute volume
+Google Trends,trends_summary_us_kirk_2025 — assassination spike vs baseline (±3d),20.0,ratio,data/processed/trends_summary_us_kirk_2025.json,0–100 relative index; not absolute volume
+Google Trends,trends_summary_us_kirk_2025 — Turning Point spike vs baseline (±3d),7.5,ratio,data/processed/trends_summary_us_kirk_2025.json,0–100 relative index; not absolute volume
+Google Trends,trends_summary_us_kirk_2025 — Trump spike vs baseline (±3d),1.327,ratio,data/processed/trends_summary_us_kirk_2025.json,0–100 relative index; not absolute volume
+Sketch Engine (hrWac 2.2+),hrv_jugocetnici — jugočetnici (word CQL) — concordance size N,5,hits (approx. index),data/processed/sketch_hrwac_slurs.json,HR
+Sketch Engine (hrWac 2.2+),hrv_jugokomunisti — jugokomunisti (word CQL) — concordance size N,155,hits (approx. index),data/processed/sketch_hrwac_slurs.json,HR
+Sketch Engine (hrWac 2.2+),hrv_klerofasist — klerofašist (word CQL) — concordance size N,67,hits (approx. index),data/processed/sketch_hrwac_slurs.json,HR STAL focus
+Sketch Engine (hrWac 2.2+),hrv_ustase — Ustaše (word CQL) — concordance size N,2351,hits (approx. index),data/processed/sketch_hrwac_slurs.json,HR historical slur label
+Methods,Core linguistic evidence (hrWac 2.2+),Sketch Engine,—,data/processed/sketch_hrwac_slurs.json,Word-form CQL; primary corpus in prijedlog.md
+Methods,Event anchors for figures (editable),config/anchor_events.json,—,config/anchor_events.json,Fill exact dates in paper

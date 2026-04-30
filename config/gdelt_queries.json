@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "note": "GKG V2Themes substring counts on gdelt-bq.gdeltv2.gkg_partitioned. Short windows to limit bytes. Needs GOOGLE_CLOUD_PROJECT + auth.",
+  "table": "gdelt-bq.gdeltv2.gkg_partitioned",
+  "runs": [
+    {
+      "id": "hr_thompson_hipodrom_202507",
+      "label": "HR: GKG records with Thompson / Hipodrom / Zagreb / koncert in V2Themes (early July 2025)",
+      "partition_start": "2025-07-01",
+      "partition_end": "2025-07-15",
+      "theme_substrings": ["thompson", "hipodrom", "zagreb", "koncert"]
+    },
+    {
+      "id": "us_kirk_202509",
+      "label": "US: GKG with Kirk / assassination / Trump / MAGA in V2Themes (Sept 2025)",
+      "partition_start": "2025-09-05",
+      "partition_end": "2025-09-15",
+      "theme_substrings": ["kirk", "assassination", "trump", "maga", "utah"]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "slurs-pipeline"
+version = "0.1.0"
+description = "Empirical pipeline for slur / polarization research"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "python-dotenv>=1.0.0",
+  "pydantic-settings>=2.0.0",
+  "httpx>=0.27.0",
+  "typer>=0.12.0",
+  "pandas>=2.0.0",
+  "uvicorn[standard]>=0.27.0",
+  "fastapi>=0.110.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0.0"]
+# Unofficial Google Trends (no API key; respect ToS / rate limits)
+trends = ["pytrends>=4.9.0", "lxml>=4.9.0"]
+# Google BigQuery — GDELT GKG (GOOGLE_CLOUD_PROJECT + auth)
+gdelt = ["google-cloud-bigquery>=3.14.0"]
+
+[project.scripts]
+slurs-pipeline = "pipeline.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pipeline*"]

@@ -1,0 +1,4 @@
+# Prefer: pip install -e ".[dev]" from this directory (see pyproject.toml).
+# Or minimal runtime only:
+#   pip install -e .
+-e .
