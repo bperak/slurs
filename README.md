@@ -4,6 +4,8 @@
 
 **Repository:** [github.com/bperak/slurs](https://github.com/bperak/slurs)
 
+- **Radna kopija na serveru:** kod koji se ovdje razvija nalazi se na VPS-u **Liks** u direktoriju **`~/slurs_cer_julija`** (apsolutno: `/home/Liks/slurs_cer_julija`).
+
 This repository supports **comparative empirical work** on how **political slurs** and **polarizing labels** appear across **different kinds of evidence**: written **web text** (Croatian), **news indexes**, and **proxies for public attention** (Wikipedia traffic, Google Trends). It is built for **joint social–linguistic research** (e.g. STAL-style projects on Croatia and transatlantic comparators), not for scoring individuals or platforms.
 
 ---
